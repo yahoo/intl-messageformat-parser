@@ -1,6 +1,7 @@
 'use strict';
 
 var parser = require('../../');
+var parserAlt = require('../../src/parser-alt');
 
 var msg = '' +
     'Yo, {firstName} {lastName} has ' +
@@ -9,6 +10,14 @@ var msg = '' +
         'one {book} ' +
         'other {books}}.';
 
-module.exports = function () {
-    parser.parse(msg);
+module.exports = {
+	name: 'normal msg',
+	tests: {
+		parser: function () {
+			parser.parse(msg);
+		},
+		parserAlt: function() {
+			parserAlt.parse(msg);
+		}
+	}
 };
