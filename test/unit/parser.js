@@ -321,6 +321,13 @@ describe('parse()', function () {
             expect(element.format.type).to.equal('numberFormat');
             expect(element.format.style).to.equal('percent');
         });
+
+        it('should preserve whitespace in plurals', function () {
+            var msg = '{rsvp_total, plural, =0{} =1{ / #}}';
+            var ast = parse(msg);
+            var element = ast.elements[0].format.options[1].value.elements[0];
+            expect(element.value).to.equal(' / #');
+        });
     });
 
     describe('escaping', function () {
