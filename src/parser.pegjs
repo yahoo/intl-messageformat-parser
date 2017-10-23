@@ -118,7 +118,7 @@ selector
     / chars
 
 optionalFormatPattern
-    = _ selector:selector _ '{' _ pattern:messageFormatPattern _ '}' {
+    = _ selector:selector _ '{' pattern:messageFormatPattern '}' {
         return {
             type    : 'optionalFormatPattern',
             selector: selector,
